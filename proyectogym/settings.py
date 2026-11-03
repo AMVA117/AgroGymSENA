@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'mainapp',
     'maquinas',
     'rutinas',
+    'ejercicios',
 ]
 
 MIDDLEWARE = [
