@@ -1,0 +1,11 @@
+<ul class="sidebar-nav">
+    <li class="{% if request.path == '/' %}active{% endif %}">
+        <a href="{% url 'inicio' %}">🏠 Inicio</a>
+    </li>
+    <li class="{% if 'maquinas' in request.path %}active{% endif %}">
+        <a href="{% url 'lista_maquinas' %}">🛠️ Máquinas</a>
+    </li>
+    <li class="{% if 'ejercicios' in request.path %}active{% endif %}">
+        <a href="{% url 'lista_ejercicios' %}">💪 Ejercicios</a>
+    </li>
+</ul>

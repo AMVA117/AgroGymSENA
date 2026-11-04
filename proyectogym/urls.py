@@ -19,7 +19,9 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('mainapp.urls')),          # Ruta para el menú principal y página de inicio
-    path('maquinas/', include('maquinas.urls')),  # Ruta para el módulo de máquinas
-    path('ejercicios/', include('ejercicios.urls')),# Ruta para el módulo de ejercicios
+    path('', include('mainapp.urls')),          # Vista de Inicio
+    path('rutinas/', include('rutinas.urls')),      # Módulo de Mi Rutina
+    path('historial/', include('historial.urls')),  # Módulo de Historial
+    path('calendario/', include('calendario.urls')),# Módulo de Calendario
+    path('perfil/', include('perfil.urls')),        # Módulo de Mi Perfil
 ]
