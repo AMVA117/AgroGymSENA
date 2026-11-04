@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - AgroFit SENA</title>
+    <link rel="stylesheet" href="{% static 'usuarios/css/estilos.css' %}">
+</head>
+<body class="login-page">
+
+<div class="login-container">
+    <div class="login-card">
+
+        <!-- Panel izquierdo (aquí va la imagen, ver CSS) -->
+        <section class="login-hero">
+            <img src="{% static 'usuarios/img/gimnasio.jpg' %}" alt="Gimnasio AgroFit" class="hero-img">
+            <h1 class="brand">AgroFit <span>SENA</span></h1>
+            <p class="hero-text">Servicio Nacional De Aprendizaje</p>
+            <div class="tags">
+                <span>Bienestar</span>
+                <span>Rendimiento</span>
+            </div>
+        </section>
+
+        <!-- Panel derecho (formulario) -->
+        <section class="login-form">
+            <h2>Bienvenido</h2>
+            <p class="subtitle">Ingrese sus credenciales institucionales para acceder.</p>
+
+            <!-- Mensajes de Django -->
+            {% if messages %}
+                <div class="alert-messages">
+                    {% for message in messages %}
+                        <p class="error-message">{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% if form.non_field_errors %}
+                <div class="alert-messages">
+                    {% for error in form.non_field_errors %}
+                        <p class="error-message">{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="{{ form.username.id_for_label }}">Correo Electrónico</label>
+                    {{ form.username }}
+                </div>
+
+                <div class="form-group">
+                    <div class="label-row">
+                        <label for="{{ form.password.id_for_label }}">Contraseña</label>
+                        <a href="#" class="link-small">¿Olvidó su contraseña?</a>
+                    </div>
+                    <div class="password-wrapper">
+                        {{ form.password }}
+                        <button type="button" class="toggle-eye" id="toggle-password"
+                                aria-label="Mostrar contraseña">👁</button>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">Iniciar Sesión</button>
+            </form>
+
+            <div class="login-footer">
+                <a href="{% url 'usuarios:registro' %}">Regístrese</a>
+            </div>
+
+            <p class="support">
+                ¿Problemas de acceso? Contacte a soporte técnico:<br>
+                <a href="mailto:soporte@sena.edu.co">soporte@sena.edu.co</a>
+            </p>
+        </section>
+
+    </div>
+</div>
+
+<!-- Mostrar / ocultar contraseña -->
+<script>
+    const toggle = document.getElementById('toggle-password');
+    const passInput = document.getElementById('{{ form.password.id_for_label }}');
+    toggle.addEventListener('click', () => {
+        passInput.type = passInput.type === 'password' ? 'text' : 'password';
+    });
+</script>
+
+</body>
+</html>

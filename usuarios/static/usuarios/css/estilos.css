@@ -1,0 +1,179 @@
+/* Reset básico para el login independiente */
+.login-page { margin: 0; }
+.login-page *, .login-page *::before, .login-page *::after { box-sizing: border-box; }
+.login-page h1, .login-page h2, .login-page p { margin: 0; }
+/* Contenedor general */
+.login-container {
+  font-family: "Work Sans", "Segoe UI", Arial, sans-serif;
+  background: #f8fafc;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+/* Tarjeta de dos paneles */
+.login-container .login-card {
+  display: flex;
+  width: 100%;
+  max-width: 960px;
+  min-height: 560px;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+/* Panel izquierdo: fondo azul */
+.login-container .login-hero {
+  flex: 1;
+  padding: 40px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #0b2a4a;
+
+  /* >>> AQUÍ VA La IMAGEN:
+  background-image:
+    linear-gradient(rgba(11, 42, 74, 0.75), rgba(11, 42, 74, 0.75)),
+    url("../img/gimnasio.jpg");
+  background-size: cover;
+  background-position: center;
+  */
+}
+
+.login-container .brand { font-size: 1.15rem; font-weight: 700; }
+.login-container .brand span { color: #39a900; } /* Verde SENA */
+.login-container .hero-text { font-size: 1.1rem; margin: auto 0; }
+
+/* Etiquetas inferiores */
+.login-container .tags { display: flex; gap: 10px; }
+.login-container .tags span {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Panel derecho */
+.login-container .login-form {
+  flex: 1;
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-container .login-form h2 { font-size: 2rem; color: #021824; font-weight: 800; }
+.login-container .subtitle { color: #9aa3ab; font-size: 0.95rem; margin: 6px 0 24px; }
+
+/* Mensajes de Django */
+.login-container .alert-messages { margin-bottom: 16px; }
+.login-container .error-message {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+/* Campos */
+.login-container .form-group { margin-bottom: 18px; }
+
+.login-container .form-group label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.login-container .label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.login-container .link-small {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #0b4a6f;
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+
+/* Inputs generados por Django */
+.login-container .form-group input[type="text"],
+.login-container .form-group input[type="email"],
+.login-container .form-group input[type="password"] {
+  width: 100%;
+  height: 44px;
+  padding: 0 14px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: #fffac8;
+  font-size: 0.95rem;
+  color: #111;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.login-container .form-group input:focus { border-color: #0b4a6f; }
+
+/* Ojo de la contraseña */
+.login-container .password-wrapper { position: relative; }
+.login-container .password-wrapper input { padding-right: 44px; }
+.login-container .toggle-eye {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+/* Botón principal */
+.login-container .btn-submit {
+  width: 100%;
+  height: 44px;
+  margin-top: 6px;
+  border: none;
+  border-radius: 8px;
+  background: #011b2a;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.login-container .btn-submit:hover { background: #0b3550; }
+
+/* Pie: registro y soporte */
+.login-container .login-footer { text-align: center; margin-top: 22px; }
+.login-container .login-footer a {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #021824;
+}
+
+.login-container .support {
+  text-align: center;
+  font-size: 0.78rem;
+  color: #6b7280;
+  margin-top: 26px;
+  line-height: 1.6;
+}
+.login-container .support a { font-weight: 700; color: #0b4a6f; text-decoration: none; }
+
+/* Responsive: oculta el panel azul en pantallas pequeñas */
+@media (max-width: 760px) {
+  .login-container .login-hero { display: none; }
+}
