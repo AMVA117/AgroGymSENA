@@ -2,10 +2,16 @@
     <li class="{% if request.path == '/' %}active{% endif %}">
         <a href="{% url 'inicio' %}">🏠 Inicio</a>
     </li>
-    <li class="{% if 'maquinas' in request.path %}active{% endif %}">
-        <a href="{% url 'lista_maquinas' %}">🛠️ Máquinas</a>
+    <li class="{% if 'rutinas' in request.path %}active{% endif %}">
+        <a href="{% url 'rutinas' %}">⚡ Mi Rutina</a>
     </li>
-    <li class="{% if 'ejercicios' in request.path %}active{% endif %}">
-        <a href="{% url 'lista_ejercicios' %}">💪 Ejercicios</a>
+    <li class="{% if 'historial' in request.path %}active{% endif %}">
+        <a href="{% url 'historial' %}">📈 Historial</a>
+    </li>
+    <li class="{% if 'calendario' in request.path %}active{% endif %}">
+        <a href="{% url 'calendario' %}">📅 Calendario</a>
+    </li>
+    <li class="{% if 'perfil' in request.path %}active{% endif %}">
+        <a href="{% url 'perfil' %}">👤 Mi Perfil</a>
     </li>
 </ul>
