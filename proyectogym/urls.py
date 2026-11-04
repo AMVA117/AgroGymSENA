@@ -19,7 +19,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
-    ## Incluir las URLs de la app mainapp
-    path('', include('mainapp.urls')),
+    path('', include('mainapp.urls')),          # Ruta para el menú principal y página de inicio
+    path('maquinas/', include('maquinas.urls')),  # Ruta para el módulo de máquinas
+    path('ejercicios/', include('ejercicios.urls')),# Ruta para el módulo de ejercicios
 ]

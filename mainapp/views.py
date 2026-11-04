@@ -1,9 +1,11 @@
 from django.shortcuts import render
 
-# Vista para la página de inicio del sistema
-def index(request):
+# ==============================================================================
+# VISTA: Página de Inicio / Menú Principal
+# ==============================================================================
+def inicio(request):
     """
-    Esta función procesa la petición web (request) 
-    y devuelve renderizada la plantilla index.html
+    Renderiza la vista del menú principal de AgroGym con los accesos 
+    a máquinas y ejercicios.
     """
-    return render(request, 'mainapp/index.html')
+    return render(request, 'mainapp/inicio.html')

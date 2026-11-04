@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Ejercicios</title>
+</head>
+<body>
+    <h1>Listado de Ejercicios</h1>
+    <a href="/">Volver al Menú Principal</a>
+    <hr>
+    <ul>
+        {% for e in ejercicios %}
+            <li>
+                <strong>{{ e.nombre }}</strong> - Músculo: {{ e.grupo_muscular }} 
+                <span>(Dificultad: {{ e.dificultad }})</span>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
